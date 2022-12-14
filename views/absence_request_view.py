@@ -24,7 +24,9 @@ class AbsenceRequestView(discord.ui.View):
             # Disable both buttons
             button.disabled = True
             self.decline.disabled = True
-            await interaction.message.edit(embed=PrivateChannel.accepted(self.absence_request))
+
+            # Update private channel embed
+            await interaction.message.edit(view=self, embed=PrivateChannel.accepted(self.absence_request))
 
             # Update database insert
             database.absences.update_one({'_id': self.absence_request_insert_id}, {
