@@ -12,6 +12,8 @@ absence_reminder_time = os.getenv("ABSENCE_REMINDER_TIME")
 mongo_user = os.getenv("MONGO_USER")
 mongo_password = os.getenv("MONGO_PASSWORD")
 mongo_url = os.getenv("MONGO_URL")
+mongo_database_name = os.getenv("MONGO_DATABASE_NAME")
+mongo_absence_collection_name = os.getenv("MONGO_ABSENCE_COLLECTION_NAME")
 
 # Discord
 private_review_channel_id = os.getenv("PRIVATE_REVIEW_CHANNEL_ID")
