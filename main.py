@@ -7,8 +7,13 @@ class Bot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix="!", intents=discord.Intents.all())
 
-    async def on_command_error(self, ctx, error):
+    async def on_command_error(self, message, error):
+        # Console error logging
         print(error)
+
+        # Cooldown error message
+        if isinstance(error, commands.CommandOnCooldown):
+            await message.send(f"Je kunt dit pas over {error.retry_after:.0f} seconden weer doen.")
 
 
 bot = Bot()

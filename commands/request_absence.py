@@ -14,7 +14,7 @@ class RequestAbsence(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @commands.cooldown(1, 100, commands.BucketType.user)
+    @commands.cooldown(1, 60, commands.BucketType.user)
     async def afwezig(self, message):
         def user_check(m):
             return m.author.id == message.author.id
