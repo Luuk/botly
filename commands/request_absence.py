@@ -133,8 +133,7 @@ class RequestAbsence(commands.Cog):
             # Send embed with view
             await self.bot.get_channel(int(env.private_review_channel_id)).send(
                 embed=PrivateChannel.pending(absence_request),
-                view=AbsenceRequestView(absence_request,
-                                        absence_request_insert.inserted_id))
+                view=AbsenceRequestView(absence_request, absence_request_insert.inserted_id))
 
             # Notify user
             await self.bot.get_user(int(absence_request.user_id)).send(embed=DirectMessage.pending(absence_request))

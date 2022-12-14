@@ -5,9 +5,9 @@ from embeds.absence_request_embed import PrivateChannel, PublicChannel, DirectMe
 
 
 class AbsenceRequestView(discord.ui.View):
-    def __init__(self, absence_request, absence_request_insert_id):
+    def __init__(self, absence_request, absence_request_id):
         self.absence_request = absence_request
-        self.absence_request_insert_id = absence_request_insert_id
+        self.absence_request_id = absence_request_id
         super().__init__(timeout=None)
 
     @discord.ui.button(label="Goedkeuren", style=discord.ButtonStyle.green)
@@ -29,7 +29,7 @@ class AbsenceRequestView(discord.ui.View):
             await interaction.message.edit(view=self, embed=PrivateChannel.accepted(self.absence_request))
 
             # Update database insert
-            database.absences.update_one({'_id': self.absence_request_insert_id}, {
+            database.absences.update_one({'_id': self.absence_request_id}, {
                 "$set": {"is_accepted": True, "is_pending": False}})
 
             # Send embed to user
@@ -68,7 +68,7 @@ class AbsenceRequestView(discord.ui.View):
                 embed=PrivateChannel.declined(self.absence_request, str(request_decline_reason.content)))
 
             # Update database insert
-            database.absences.update_one({'_id': self.absence_request_insert_id}, {
+            database.absences.update_one({'_id': self.absence_request_id}, {
                 "$set": {"is_pending": False, "request_decline_reason": str(request_decline_reason.content)}})
 
             # Send embed to user

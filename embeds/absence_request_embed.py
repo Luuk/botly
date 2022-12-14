@@ -12,7 +12,7 @@ class PrivateChannel:
             absence_request.use_hours = "Nee"
 
         embed = discord.Embed(title=":alarm_clock: Afwezigheid aanvraag", color=env.embed_color)
-        embed.add_field(name="Door", value="<@" + str(absence_request.user_id) + ">", inline=False)
+        embed.add_field(name="Door", value=f"<@{str(absence_request.user_id)}>", inline=False)
         embed.add_field(name="Op", value=absence_request.start_datetime.strftime("%d/%m/%Y"), inline=True)
         embed.add_field(name="Van", value=absence_request.start_datetime.strftime("%H:%M uur"), inline=True)
         embed.add_field(name="Tot", value=absence_request.end_datetime.strftime("%H:%M uur"), inline=True)
@@ -30,7 +30,7 @@ class PrivateChannel:
             absence_request.use_hours = "Nee"
 
         embed = discord.Embed(title=":white_check_mark: Verzoek goedgekeurd", color=env.embed_color)
-        embed.add_field(name="Wie", value="<@" + str(absence_request.user_id) + ">", inline=False)
+        embed.add_field(name="Wie", value=f"<@{str(absence_request.user_id)}>", inline=False)
         embed.add_field(name="Op", value=absence_request.start_datetime.strftime("%d/%m/%Y"), inline=True)
         embed.add_field(name="Van", value=absence_request.start_datetime.strftime("%H:%M uur"), inline=True)
         embed.add_field(name="Tot", value=absence_request.end_datetime.strftime("%H:%M uur"), inline=True)
@@ -48,7 +48,7 @@ class PrivateChannel:
             absence_request.use_hours = "Nee"
 
         embed = discord.Embed(title=":x: Verzoek afgewezen", color=env.embed_color)
-        embed.add_field(name="Wie", value="<@" + str(absence_request.user_id) + ">", inline=False)
+        embed.add_field(name="Wie", value=f"<@{str(absence_request.user_id)}>", inline=False)
         embed.add_field(name="Op", value=absence_request.start_datetime.strftime("%d/%m/%Y"), inline=True)
         embed.add_field(name="Van", value=absence_request.start_datetime.strftime("%H:%M uur"), inline=True)
         embed.add_field(name="Tot", value=absence_request.end_datetime.strftime("%H:%M uur"), inline=True)
@@ -62,7 +62,7 @@ class PrivateChannel:
 class PublicChannel:
     def accepted(absence_request):
         embed = discord.Embed(title=":alarm_clock: Afwezigheid", color=env.embed_color)
-        embed.add_field(name="Wie", value="<@" + str(absence_request.user_id) + ">", inline=False)
+        embed.add_field(name="Wie", value=f"<@{str(absence_request.user_id)}>", inline=False)
         embed.add_field(name="Op", value=absence_request.start_datetime.strftime("%d/%m/%Y"), inline=True)
         embed.add_field(name="Van", value=absence_request.start_datetime.strftime("%H:%M uur"), inline=True)
         embed.add_field(name="Tot", value=absence_request.end_datetime.strftime("%H:%M uur"), inline=True)
@@ -71,7 +71,7 @@ class PublicChannel:
 
     def reminder(absence_request):
         embed = discord.Embed(title=":alarm_clock: Afwezigheid reminder", color=env.embed_color)
-        embed.add_field(name="Wie", value="<@" + str(absence_request.user_id) + ">", inline=False)
+        embed.add_field(name="Wie", value=f"<@{str(absence_request.user_id)}>", inline=False)
         embed.add_field(name="Op", value="Vandaag", inline=True)
         embed.add_field(name="Van", value=absence_request.start_datetime.strftime("%H:%M uur"), inline=True)
         embed.add_field(name="Tot", value=absence_request.end_datetime.strftime("%H:%M uur"), inline=True)
