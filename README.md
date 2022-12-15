@@ -22,4 +22,4 @@ Users can start an absence request by DMing the bot `!afwezig`. This will trigge
 
 Accepted requests will be sent to the `PUBLIC_ABSENCE_CHANNEL_ID` so everyone can view it. Declined requests will not be shared publicly and only the user who created the request will be notified about the declinal.
 
-Everyday, the bot checks which absences are that day, and will send a reminder at `ABSENCE_REMINDER_TIME` in the `PUBLIC_ABSENCE_CHANNEL_ID`.
+Everyday, the bot checks which absences are that day, and will send a reminder for each of them at `ABSENCE_REMINDER_TIME` in the `PUBLIC_ABSENCE_CHANNEL_ID`.
