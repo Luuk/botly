@@ -21,3 +21,5 @@ Discord bot for Boldly-XR to handle absences.
 Users can start an absence request by DMing the bot `!afwezig`. This will trigger a function which starts asking the user the list of questions required for the request. Once this is complete, the request will be sent to the `PRIVATE_REVIEW_CHANNEL_ID` in which users with the `BOTLY_ADMIN_ROLE_ID` can accept or decline the request.
 
 Accepted requests will be sent to the `PUBLIC_ABSENCE_CHANNEL_ID` so everyone can view it. Declined requests will not be shared publicly and only the user who created the request will be notified about the declinal.
+
+Everyday, the bot checks which absences are that day, and will send a reminder at `ABSENCE_REMINDER_TIME` in the `PUBLIC_ABSENCE_CHANNEL_ID`.
