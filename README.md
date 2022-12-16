@@ -18,6 +18,8 @@ Discord bot for Boldly-XR to handle absences.
 3. Follow header "Set up your environment" from [this guide](https://developers.google.com/calendar/api/quickstart/python), and place `credentials.json` in the `/config/google/` folder
 3. Run `main.py`
 
+NOTE: Running the bot for the first time will open an SSO to authenticate your Google Calendar.
+
 ## Usage
 Users can start an absence request by DMing the bot `!afwezig`. This will trigger a function which starts asking the user the list of questions required for the request. Once this is complete, the request will be sent to the `PRIVATE_REVIEW_CHANNEL_ID` in which users with the `BOTLY_ADMIN_ROLE_ID` can accept or decline the request.
 
