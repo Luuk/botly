@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 from config import env
-import datetime
+from functions.create_absence_calendar_event import get_auth_token
+
 
 class Bot(commands.Bot):
     def __init__(self):
@@ -21,6 +22,7 @@ bot = Bot()
 
 @bot.event
 async def on_ready():
+    get_auth_token()  # Google authentication
     await bot.load_extension("commands.request_absence")
     await bot.load_extension("tasks")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="!afwezig"))
