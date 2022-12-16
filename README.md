@@ -1,5 +1,5 @@
 # Botly
-Discord bot for Boldly-XR to handle absences.
+A Discord bot for Boldly-XR to handle absences.
 
 ## Prerequisites
 ### Software & services
