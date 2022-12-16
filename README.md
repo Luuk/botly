@@ -21,7 +21,7 @@ Discord bot for Boldly-XR to handle absences.
 NOTE: Running the bot for the first time will open an SSO to authenticate your Google Calendar.
 
 ## Usage
-Users can start an absence request by DMing the bot `!afwezig`. This will trigger a function which starts asking the user the list of questions required for the request. Users can cancel the questionnaire at any point by using `!cancel`. Once this is complete, the request will be sent to the `PRIVATE_REVIEW_CHANNEL_ID` in which users with the `BOTLY_ADMIN_ROLE_ID` can accept or decline the request.
+Users can start an absence request by DMing the bot `!afwezig`. This will trigger a function which starts asking the user the list of questions required for the request. Users can cancel the questionnaire at any point by using `!cancel`. Once the questionnaire is complete, a request will be sent to the `PRIVATE_REVIEW_CHANNEL_ID` in which users with the `BOTLY_ADMIN_ROLE_ID` can accept or decline the request.
 
 Accepted requests will be sent to the `PUBLIC_ABSENCE_CHANNEL_ID` so everyone can view it. Declined requests will not be shared publicly and only the user who created the request will be notified about the declinal.
 
