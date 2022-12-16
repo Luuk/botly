@@ -15,7 +15,7 @@ Discord bot for Boldly-XR to handle absences.
 ## Installation
 1. Install required packages: `pip install -r requirements.txt`
 2. Edit/configure `.env.example` and rename to `.env`
-3. Follow [this guide](https://developers.google.com/calendar/api/quickstart/python) and place `credentials.json` in the `/config/google/` folder
+3. Follow from [this guide](https://developers.google.com/calendar/api/quickstart/python) header "Set up your environment", and place `credentials.json` in the `/config/google/` folder
 3. Run `main.py`
 
 ## Usage
