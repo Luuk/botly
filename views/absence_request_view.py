@@ -1,6 +1,7 @@
 import discord
 from config import env
 from config import database
+from functions.create_absence_calendar_event import create_absence_calendar_event
 from embeds.absence_request_embed import PrivateChannel, PublicChannel, DirectMessage
 
 
@@ -32,8 +33,12 @@ class AbsenceRequestView(discord.ui.View):
             database.absences.update_one({'_id': self.absence_request_id}, {
                 "$set": {"is_accepted": True, "is_pending": False}})
 
+            # Add to Google Calendar
+            create_absence_calendar_event(self.absence_request.start_datetime, self.absence_request.end_datetime,
+                                          self.absence_request.user_email)
+
             # Send embed to user
-            await interaction.client.get_user(int(self.absence_request.user_id)).send(
+            await interaction.client.get_user(int(self.absence_request.discord_user_id)).send(
                 embed=DirectMessage.accepted(self.absence_request))
 
             # Send embed to public absence channel
@@ -72,5 +77,5 @@ class AbsenceRequestView(discord.ui.View):
                 "$set": {"is_pending": False, "request_decline_reason": str(request_decline_reason.content)}})
 
             # Send embed to user
-            await interaction.client.get_user(int(self.absence_request.user_id)).send(
+            await interaction.client.get_user(int(self.absence_request.discord_user_id)).send(
                 embed=DirectMessage.declined(self.absence_request, str(request_decline_reason.content)))

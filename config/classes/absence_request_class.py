@@ -1,7 +1,8 @@
 class AbsenceRequest:
-    def __init__(self, user_id, created_at, start_datetime, end_datetime, is_full_day, use_hours, absence_reason,
+    def __init__(self, discord_user_id, user_email, created_at, start_datetime, end_datetime, is_full_day, use_hours, absence_reason,
                  is_accepted, is_pending, sent_reminder, request_decline_reason):
-        self.user_id = user_id
+        self.discord_user_id = discord_user_id
+        self.user_email = user_email
         self.created_at = created_at
         self.start_datetime = start_datetime
         self.end_datetime = end_datetime

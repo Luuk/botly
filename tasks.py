@@ -53,7 +53,7 @@ class Task(commands.Cog):
 
             # Create absence request object
             absence_request = AbsenceRequest(
-                user_id=int(absence['user_id']),
+                discord_user_id=int(absence['discord_user_id']),
                 created_at=absence['created_at'],
                 start_datetime=absence['start_datetime'],
                 end_datetime=absence['end_datetime'],
