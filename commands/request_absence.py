@@ -10,6 +10,10 @@ from views.absence_request_view import AbsenceRequestView
 from embeds.absence_request_embed import PrivateChannel, DirectMessage
 
 
+class AbortWait(Exception):
+    pass
+
+
 class RequestAbsence(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -18,6 +22,8 @@ class RequestAbsence(commands.Cog):
     @commands.cooldown(1, 60, commands.BucketType.user)
     async def afwezig(self, message):
         def user_check(m):
+            if m.content == '!cancel':
+                raise AbortWait()
             return m.author.id == message.author.id
 
         if isinstance(message.channel, discord.channel.DMChannel):
